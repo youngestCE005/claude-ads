@@ -3,364 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <style>
-  
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1080px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #FFFDF7;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ═══ HEADER ═══ */
+.header {
+  background: #F5A623;
+  padding: 22px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 13px; }
+.logo-icon {
+  width: 48px; height: 48px; background: rgba(0,0,0,0.14); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 26px;
+}
+.logo-name { font-size: 21px; font-weight: 900; color: #fff; }
+.logo-sub { font-size: 10px; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+.header-phone {
+  background: rgba(0,0,0,0.14); border-radius: 40px;
+  padding: 11px 24px; font-size: 18px; font-weight: 800; color: #fff;
+}
 
-  body {
-    width: 1080px;
-    height: 1080px;
-    overflow: hidden;
-    background: #0a0a0a;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  }
+/* ═══ HEADLINE BAND ═══ */
+.hl-band {
+  background: #fff;
+  padding: 32px 52px 28px;
+  border-bottom: 3px solid #F5A623;
+}
+.hl-eyebrow {
+  font-size: 12px; font-weight: 700; color: #F5A623;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+}
+.hl-main {
+  font-size: 60px; font-weight: 900; color: #111;
+  line-height: 1.0; letter-spacing: -2px;
+}
+.hl-main em { font-style: normal; color: #F5A623; }
 
-  .bg {
-    position: absolute;
-    inset: 0;
-    background: #0a0a0a;
-    overflow: hidden;
-  }
-  .honeycomb {
-    position: absolute;
-    inset: -100px;
-    opacity: 0.035;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 1l28 16v33L28 66zm0-6l22-13V24L28 7 6 24v23l22 13z' fill='%23F5A623'/%3E%3C/svg%3E");
-    background-size: 56px 100px;
-  }
-  .glow-left {
-    position: absolute;
-    top: 200px;
-    left: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(ellipse at center, rgba(245,166,35,0.1) 0%, transparent 70%);
-  }
-  .glow-right {
-    position: absolute;
-    bottom: 100px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(ellipse at center, rgba(245,166,35,0.08) 0%, transparent 70%);
-  }
+/* ═══ TESTIMONIAL AREA ═══ */
+.testimonial-section {
+  display: flex;
+  padding: 36px 52px 32px;
+  gap: 32px;
+  background: #FFF8EC;
+  flex: 1;
+}
 
-  .dot { position: absolute; border-radius: 50%; background: #F5A623; }
-  .dot-1 { width: 4px; height: 4px; top: 100px; right: 100px; opacity: 0.4; }
-  .dot-2 { width: 3px; height: 3px; top: 300px; left: 80px; opacity: 0.3; }
-  .dot-3 { width: 5px; height: 5px; bottom: 250px; right: 150px; opacity: 0.25; }
+/* Big quote card */
+.big-quote {
+  flex: 1;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 40px 32px;
+  box-shadow: 0 6px 32px rgba(245,166,35,0.12);
+  border: 1.5px solid #F5E0A0;
+  position: relative;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.quote-mark {
+  font-size: 96px; font-weight: 900; color: #F5A623;
+  line-height: 0.8; margin-bottom: 8px; opacity: 0.4;
+}
+.quote-text {
+  font-size: 28px; font-weight: 600; color: #111;
+  line-height: 1.45; flex: 1;
+}
+.quote-text em { font-style: italic; color: #F5A623; }
+.reviewer {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 28px; padding-top: 22px;
+  border-top: 1.5px solid #FFF0CE;
+}
+.reviewer-avatar {
+  width: 52px; height: 52px;
+  background: #F5A623; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900; color: #fff; flex-shrink: 0;
+}
+.reviewer-name { font-size: 16px; font-weight: 800; color: #111; }
+.reviewer-loc { font-size: 13px; color: #888; margin-top: 2px; }
+.stars { font-size: 24px; color: #F5A623; letter-spacing: 3px; margin-left: auto; }
 
-  /* Card layout */
-  .card {
-    position: relative;
-    width: 1080px;
-    height: 1080px;
-    padding: 60px 80px 80px;
-    display: flex;
-    flex-direction: column;
-  }
+/* Side cards stack */
+.side-cards {
+  flex: 0 0 360px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.side-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  border: 1.5px solid #F5E0A0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.sc-stars { font-size: 18px; color: #F5A623; letter-spacing: 2px; margin-bottom: 8px; }
+.sc-text { font-size: 15px; color: #444; line-height: 1.45; font-style: italic; margin-bottom: 10px; }
+.sc-author { font-size: 13px; font-weight: 700; color: #111; }
+.sc-loc { font-size: 12px; color: #888; }
 
-  /* Logo bar */
-  .logo-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 52px;
-  }
-  .logo-mark { display: flex; align-items: center; gap: 10px; }
-  .logo-icon { width: 38px; height: 38px; }
-  .logo-text { display: flex; flex-direction: column; line-height: 1; }
-  .logo-name {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.3px;
-  }
-  .logo-sub {
-    font-size: 9px; font-weight: 600; color: #F5A623;
-    letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px;
-  }
-  .phone-badge {
-    background: rgba(245,166,35,0.12);
-    border: 1px solid rgba(245,166,35,0.3);
-    border-radius: 40px;
-    padding: 10px 20px;
-    font-size: 15px; font-weight: 600; color: #F5A623;
-  }
+/* Google badge */
+.google-row {
+  display: flex; align-items: center; gap: 10px; margin-top: 4px;
+}
+.google-badge {
+  background: #4285F4; color: #fff;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+}
+.review-count { font-size: 12px; color: #888; }
 
-  /* Main content */
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+/* ═══ FEATURES ROW ═══ */
+.features-row {
+  display: flex;
+  background: #fff;
+  padding: 20px 52px;
+  gap: 0;
+  border-top: 2px solid #FFF0CE; border-bottom: 2px solid #FFF0CE;
+}
+.feature { flex: 1; display: flex; align-items: center; gap: 10px; }
+.feature + .feature { border-left: 1px solid #F5E0A0; padding-left: 28px; margin-left: 4px; }
+.feat-icon { font-size: 22px; flex-shrink: 0; }
+.feat-text { font-size: 14px; font-weight: 700; color: #333; }
 
-  /* Big quote / testimonial block */
-  .testimonial-card {
-    background: rgba(245,166,35,0.06);
-    border: 1px solid rgba(245,166,35,0.18);
-    border-radius: 24px;
-    padding: 44px 52px;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: 40px;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 200px;
-    font-weight: 900;
-    color: #F5A623;
-    opacity: 0.08;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .quote-text {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 34px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.35;
-    margin-bottom: 28px;
-    position: relative;
-    z-index: 1;
-  }
-  .quote-text em {
-    font-style: italic;
-    color: #F5A623;
-  }
-
-  .reviewer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    position: relative;
-    z-index: 1;
-  }
-  .reviewer-avatar {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #F5A623 0%, #E8921A 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0a0a0a;
-  }
-  .reviewer-info {}
-  .reviewer-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 3px;
-  }
-  .reviewer-detail {
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
-    font-weight: 500;
-  }
-  .stars {
-    margin-left: auto;
-    font-size: 22px;
-    color: #F5A623;
-    letter-spacing: 2px;
-  }
-
-  /* Stats strip */
-  .stats-strip {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  .stat-pill {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-  .stat-num {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: #F5A623;
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  /* Badges row */
-  .badges-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 40px;
-    padding: 10px 18px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.65);
-  }
-  .badge-icon { color: #F5A623; font-size: 14px; }
-
-  /* CTA */
-  .cta-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .cta-btn {
-    background: linear-gradient(135deg, #F5A623, #E8921A);
-    color: #0a0a0a;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 20px 48px;
-    border-radius: 60px;
-    letter-spacing: -0.2px;
-    box-shadow: 0 8px 36px rgba(245,166,35,0.4);
-  }
-  .cta-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.4);
-  }
-
-  /* Footer */
-  .footer {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 64px;
-    background: rgba(245,166,35,0.06);
-    border-top: 1px solid rgba(245,166,35,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-  }
-  .footer-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.4);
-    font-weight: 500;
-  }
-  .footer-dot {
-    width: 4px; height: 4px;
-    background: #F5A623; border-radius: 50%; opacity: 0.7;
-  }
+/* ═══ BOTTOM ═══ */
+.bottom {
+  background: #1a1a1a;
+  padding: 24px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.bottom-price {
+  display: flex; align-items: baseline; gap: 6px;
+}
+.price-from { font-size: 14px; color: rgba(255,255,255,0.45); }
+.price-num { font-size: 42px; font-weight: 900; color: #F5A623; line-height: 1; }
+.price-unit { font-size: 15px; color: rgba(255,255,255,0.5); }
+.bottom-contact { text-align: center; }
+.bc-phone { font-size: 22px; font-weight: 800; color: #F5A623; }
+.bc-detail { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+.cta-btn {
+  background: #F5A623; color: #fff;
+  font-size: 19px; font-weight: 800;
+  padding: 16px 36px; border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(245,166,35,0.4);
+}
 </style>
 </head>
 <body>
-<div class="bg">
-  <div class="honeycomb"></div>
-  <div class="glow-left"></div>
-  <div class="glow-right"></div>
-  <div class="dot dot-1"></div>
-  <div class="dot dot-2"></div>
-  <div class="dot dot-3"></div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">🐝</div>
+    <div>
+      <div class="logo-name">Clean Bee</div>
+      <div class="logo-sub">Cleaning Service</div>
+    </div>
+  </div>
+  <div class="header-phone">(438) 544-4441</div>
 </div>
 
-<div class="card">
+<!-- HEADLINE -->
+<div class="hl-band">
+  <div class="hl-eyebrow">★ 100+ Happy Montréal Homes</div>
+  <div class="hl-main">Montréal's <em>most-loved</em> cleaning service.</div>
+</div>
 
-  <!-- Logo bar -->
-  <div class="logo-bar">
-    <div class="logo-mark">
-      <svg class="logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="19" cy="19" r="19" fill="#F5A623" fill-opacity="0.15"/>
-        <ellipse cx="19" cy="22" rx="7" ry="9" fill="#FFD447"/>
-        <rect x="12" y="20" width="14" height="3" rx="1.5" fill="#1a1a1a"/>
-        <rect x="12" y="25" width="14" height="3" rx="1.5" fill="#1a1a1a"/>
-        <circle cx="19" cy="14" r="6" fill="#FFD447"/>
-        <ellipse cx="13" cy="17" rx="5" ry="3" fill="rgba(200,230,255,0.2)" transform="rotate(-20 13 17)"/>
-        <ellipse cx="25" cy="17" rx="5" ry="3" fill="rgba(200,230,255,0.2)" transform="rotate(20 25 17)"/>
-        <circle cx="16.5" cy="13.5" r="1.5" fill="#1a1a1a"/>
-        <circle cx="21.5" cy="13.5" r="1.5" fill="#1a1a1a"/>
-      </svg>
-      <div class="logo-text">
-        <span class="logo-name">Clean Bee</span>
-        <span class="logo-sub">Cleaning Service</span>
+<!-- TESTIMONIAL SECTION -->
+<div class="testimonial-section">
+
+  <!-- Big quote -->
+  <div class="big-quote">
+    <div>
+      <div class="quote-mark">"</div>
+      <div class="quote-text">
+        "The team was <em>incredible.</em> Showed up on time, left the place <em>absolutely spotless.</em> I'll never go back to doing it myself — this is worth every single penny."
       </div>
     </div>
-    <div class="phone-badge">(438) 544-4441</div>
-  </div>
-
-  <!-- Main content -->
-  <div class="content">
-
-    <!-- Testimonial -->
-    <div class="testimonial-card">
-      <div class="quote-text">
-        "The team was <em>incredible.</em> Showed up on time, left the place absolutely spotless — I'll never go back to doing it myself."
-      </div>
+    <div>
       <div class="reviewer">
         <div class="reviewer-avatar">S</div>
-        <div class="reviewer-info">
+        <div>
           <div class="reviewer-name">Sophie M.</div>
-          <div class="reviewer-detail">Plateau-Mont-Royal · Google Review</div>
+          <div class="reviewer-loc">Plateau-Mont-Royal, Montréal</div>
+          <div class="google-row">
+            <div class="google-badge">Google Review</div>
+            <div class="review-count">Verified ✓</div>
+          </div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
     </div>
+  </div>
 
-    <!-- Stats -->
-    <div class="stats-strip">
-      <div class="stat-pill">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Homes Cleaned</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-num">5.0★</div>
-        <div class="stat-label">Google Rating</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Satisfaction</div>
-      </div>
+  <!-- Side cards -->
+  <div class="side-cards">
+    <div class="side-card">
+      <div class="sc-stars">★★★★★</div>
+      <div class="sc-text">"Same-day booking worked perfectly. The bathroom has never looked so clean."</div>
+      <div class="sc-author">Marc T.</div>
+      <div class="sc-loc">Mile End</div>
     </div>
-
-    <!-- Trust badges -->
-    <div class="badges-row">
-      <div class="badge"><span class="badge-icon">✓</span> Insured & Vetted</div>
-      <div class="badge"><span class="badge-icon">✓</span> Eco-Friendly</div>
-      <div class="badge"><span class="badge-icon">✓</span> Same-Day Available</div>
+    <div class="side-card">
+      <div class="sc-stars">★★★★★</div>
+      <div class="sc-text">"Eco-friendly products, before &amp; after photos, and $95 for my condo. Booked again already."</div>
+      <div class="sc-author">Camille R.</div>
+      <div class="sc-loc">NDG</div>
     </div>
-
-    <!-- CTA -->
-    <div class="cta-row">
-      <div class="cta-btn">Get a Free Quote →</div>
-      <div class="cta-sub">housecleaningmontreal.site</div>
+    <div class="side-card">
+      <div class="sc-stars">★★★★★</div>
+      <div class="sc-text">"Vetted, insured, and genuinely thorough. Best cleaning service in Montréal."</div>
+      <div class="sc-author">Jean-François L.</div>
+      <div class="sc-loc">Verdun</div>
     </div>
-
   </div>
 
 </div>
 
-<div class="footer">
-  <div class="footer-item"><div class="footer-dot"></div> 100 Rue Ontario E, Montréal</div>
-  <div class="footer-item"><div class="footer-dot"></div> (438) 544-4441</div>
-  <div class="footer-item"><div class="footer-dot"></div> info@housecleaningmontreal.site</div>
+<!-- FEATURES ROW -->
+<div class="features-row">
+  <div class="feature">
+    <div class="feat-icon">🛡</div>
+    <div class="feat-text">Insured &amp; Vetted</div>
+  </div>
+  <div class="feature">
+    <div class="feat-icon">🌿</div>
+    <div class="feat-text">Eco-Friendly Products</div>
+  </div>
+  <div class="feature">
+    <div class="feat-icon">⚡</div>
+    <div class="feat-text">Same-Day Available</div>
+  </div>
+  <div class="feature">
+    <div class="feat-icon">📸</div>
+    <div class="feat-text">Before &amp; After Photos</div>
+  </div>
+  <div class="feature">
+    <div class="feat-icon">💯</div>
+    <div class="feat-text">Satisfaction Guarantee</div>
+  </div>
+</div>
+
+<!-- BOTTOM -->
+<div class="bottom">
+  <div class="bottom-price">
+    <span class="price-from">From</span>
+    <span class="price-num">$95</span>
+    <span class="price-unit">/ visit</span>
+  </div>
+  <div class="bottom-contact">
+    <div class="bc-phone">(438) 544-4441</div>
+    <div class="bc-detail">housecleaningmontreal.site · 100 Rue Ontario E, Montréal</div>
+  </div>
+  <div class="cta-btn">Get a Free Quote →</div>
 </div>
 
 </body>

@@ -134,8 +134,8 @@ def render_html_files(
                 output_path = output_dir / f"{stem}{suffix}.png"
 
                 page = browser.new_page(viewport={"width": width, "height": height})
-                page.goto(f"file://{html_file.resolve()}", wait_until="domcontentloaded")
-                page.wait_for_timeout(500)
+                page.goto(f"file://{html_file.resolve()}", wait_until="load", timeout=20000)
+                page.wait_for_timeout(800)
                 page.screenshot(path=str(output_path), clip={
                     "x": 0, "y": 0, "width": width, "height": height
                 })
