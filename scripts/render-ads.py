@@ -115,8 +115,14 @@ def render_html_files(
     output_dir.mkdir(parents=True, exist_ok=True)
     results = []
 
+    # Find an available chromium executable (handles version mismatch)
+    import glob as _glob
+    chrome_candidates = _glob.glob("/root/.cache/ms-playwright/chromium-*/chrome-linux/chrome")
+    executable_path = chrome_candidates[0] if chrome_candidates else None
+
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        launch_kwargs = {"executable_path": executable_path} if executable_path else {}
+        browser = p.chromium.launch(**launch_kwargs)
 
         for html_file in html_files:
             stem = html_file.stem
@@ -128,8 +134,8 @@ def render_html_files(
                 output_path = output_dir / f"{stem}{suffix}.png"
 
                 page = browser.new_page(viewport={"width": width, "height": height})
-                page.goto(f"file://{html_file.resolve()}")
-                page.wait_for_load_state("networkidle")
+                page.goto(f"file://{html_file.resolve()}", wait_until="domcontentloaded")
+                page.wait_for_timeout(500)
                 page.screenshot(path=str(output_path), clip={
                     "x": 0, "y": 0, "width": width, "height": height
                 })
